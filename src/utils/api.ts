@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const api = axios.create({
-  baseURL: "https://link-shortener-server-u3c8.onrender.com/api",
+  baseURL: "https://shortify-1-br8t.onrender.com/api",
   headers: {
     "Content-Type": "application/json",
   },
