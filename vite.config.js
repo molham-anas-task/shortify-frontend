@@ -9,7 +9,7 @@ export default defineConfig({
   preview: {
     host: "0.0.0.0",
     port: process.env.PORT || 5173,
-    allowedHosts: ["shortify-frontend.onrender.com"],
+    allowedHosts: ["shortify-frontend.onrender.com", "https://shortify-frontend-xi.vercel.app/"],
   },
   resolve: {
     alias: {
