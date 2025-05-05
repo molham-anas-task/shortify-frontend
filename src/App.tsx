@@ -8,6 +8,8 @@ import { Route, Routes } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import { Loading } from "./components/Loading";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Register = lazy(() => import("./pages/Register"));
 const NotFound = lazy(() => import("./components/NotFound"));
@@ -17,6 +19,15 @@ const MyUrls = lazy(() => import("./pages/MyUrls"));
 const Saved = lazy(() => import("./pages/Saved"));
 
 function App() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname.startsWith("/app")) {
+      const newPath = location.pathname.replace("/app", "") || "/";
+      navigate(newPath + location.search, { replace: true });
+    }
+  }, [location]);
   return (
     <Suspense fallback={<Loading />}>
       <Routes>
