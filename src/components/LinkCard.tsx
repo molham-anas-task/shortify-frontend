@@ -53,7 +53,7 @@ const LinkCard: FC<CardProps> = ({
         {" "}
         <Link className="m-0 mx-3 w-[25px] md:w-[35px] h-[25px] md:h-[35px]" />
       </div>
-      <div className="flex-1 py-2 md:py-4 pr-2 md:pr-4  flex flex-col justify-between gap-2 md:gap-4">
+      <div className="flex-1 py-2 md:py-4 pr-2 md:pr-4  flex flex-col justify-between gap-2 md:gap-4 ">
         <div className="flex justify-between items-center">
           <div>
             {" "}
@@ -135,36 +135,41 @@ const LinkCard: FC<CardProps> = ({
               <p className="text-[14px] font-semibold text-[var(--muted-foreground)]">
                 Destination URL
               </p>
-              <div className="flex items-center gap-2 md:gap-4">
+              <div className="flex items-center gap-2 md:gap-4 break-all mr-9">
                 <a
                   href={link?.originalUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className=" text-[14px] font-extralight"
+                  className=" text-[14px] font-extraligh "
                 >
                   {link?.originalUrl}
                 </a>
               </div>
             </div>
-            {isClicks && (
-              <div className="flex  items-center justify-center flex-col">
-                <MousePointerClick className="w-[15px] md:w-[20px] " />
-                <p className="text-[14px] font-semibold text-[var(--muted-foreground)]">
-                  {link?.clickCount}
-                </p>
-              </div>
-            )}
+            
           </div>
-
-          <Button
-            onClick={handleDownload}
-            className="w-full md:w-fit flex items-center justify-center gap-1 color-[#5d5d5d] p-[14.5px_30px] leading-[23px] cursor-pointer"
-          >
-            Download
-            <QrCode />
-          </Button>
-          <div className="hidden" ref={qrRef}>
-            <QRCode value={link?.shortUrl ?? ""} size={75} />
+          <div className="flex justify-between md:justify-start items-center gap-2 md:gap-5 w-full md:w-fit">
+            {isClicks && (
+                <div className="flex  items-center justify-center flex-col ">
+                  <p className="text-[14px] font-semibold text-[var(--muted-foreground)]">Clicks</p> 
+                  <div className="flex items-center gap-2">
+                    <MousePointerClick className="w-[15px] md:w-[20px] " />
+                    <p className="text-[14px] font-extralight">
+                      {link?.clickCount}
+                    </p>
+                  </div>
+                </div>
+              )}
+            <Button
+              onClick={handleDownload}
+              className="w-fit md:w-fit flex items-center justify-center gap-1 color-[#5d5d5d] p-[14.5px_30px] leading-[23px] cursor-pointer"
+            >
+              Download
+              <QrCode />
+            </Button>
+            <div className="hidden" ref={qrRef}>
+              <QRCode value={link?.shortUrl ?? ""} size={75} />
+            </div>
           </div>
         </div>
       </div>
