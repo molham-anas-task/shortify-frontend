@@ -78,10 +78,10 @@ const Navbar = () => {
                     <BreadcrumbLink href="/">Home</BreadcrumbLink>
                   </BreadcrumbItem>
                   <BreadcrumbItem>
-                    <BreadcrumbLink href="/app/my-urls">My URLs</BreadcrumbLink>
+                    <BreadcrumbLink href="/my-urls">My URLs</BreadcrumbLink>
                   </BreadcrumbItem>
                   <BreadcrumbItem>
-                    <BreadcrumbLink href="/app/saved">Saved</BreadcrumbLink>
+                    <BreadcrumbLink href="/saved">Saved</BreadcrumbLink>
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>

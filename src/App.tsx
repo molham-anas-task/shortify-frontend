@@ -31,7 +31,7 @@ function App() {
           />
           <Route path="auth" element={<Register />} />
           <Route
-            path="app/my-urls"
+            path="/my-urls"
             element={
               <ProtectedRoute>
                 <MyUrls />
@@ -39,7 +39,7 @@ function App() {
             }
           />
           <Route
-            path="app/saved"
+            path="/saved"
             element={
               <ProtectedRoute>
                 <Saved />
