@@ -142,7 +142,9 @@ const LinkCard: FC<CardProps> = ({
                   rel="noopener noreferrer"
                   className=" text-[14px] font-extraligh "
                 >
-                  {link?.originalUrl}
+                  {link?.originalUrl?.length > 30
+                    ? `${link.originalUrl.slice(0, 30)}...`
+                    : link?.originalUrl}
                 </a>
               </div>
             </div>
