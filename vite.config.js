@@ -6,6 +6,11 @@ import path from "path";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  preview: {
+    host: "0.0.0.0",
+    port: process.env.PORT || 5173,
+    allowedHosts: ["shortify-frontend.onrender.com"],
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
